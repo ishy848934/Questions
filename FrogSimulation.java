@@ -5,21 +5,29 @@ public class FrogSimulation{
         goalDistance = dist;
         maxHops = numHops;
     }
-    private int hopDistance(){
-        int score = 0;
-
-        for( int i = 0;i < nums;i++){
-            if(score > maxHops){
-                score = maxHops;
-            }
-            else{
-                score != maxHops;
-            }
-        }
-            
-        }
-    }
-
     public boolean simulate(){
+        int position = 0;
 
+        for( int i = 0;i < maxHops;i++){
+            position +=hopDistance();
+            if (position >= goalDistance){
+                return true;
+            }
+            if (position < 0){
+                return false;
+            }
+        }
+        return false;
+    }
+    public double runSimulations(int num){
+        int countSuccess = 0;
+        for(int i = 0; i < num; i++){
+            if(simulate()){
+                countSuccess++;
+            }
+        }
+        return (double) countSuccess / num;
+        private int hopDistance() {
+            return 0;
+        }
     }
